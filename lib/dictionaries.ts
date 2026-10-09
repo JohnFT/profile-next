@@ -14,6 +14,8 @@ export type Dictionary = {
     stats: { value: string; label: string }[];
   };
   deck: {
+    talkBody: string;
+    talkFooter: string;
     meliBadge: string;
     meliBody: string;
     meliFooter: string;
@@ -114,6 +116,8 @@ const en: Dictionary = {
     ],
   },
   deck: {
+    talkBody: "AI-powered English coaching: personalized curriculum, roleplay, shadowing and interview prep with Claude and OpenAI.",
+    talkFooter: "Side project // AI",
     meliBadge: "2020 – Now",
     meliBody: "Search, AI-powered recommendations and release automation for one of Latin America's largest marketplaces.",
     meliFooter: "Tech lead // Search",
@@ -252,6 +256,8 @@ const es: Dictionary = {
     ],
   },
   deck: {
+    talkBody: "Coaching de inglés con IA: currículo personalizado, roleplay, shadowing y preparación de entrevistas con Claude y OpenAI.",
+    talkFooter: "Proyecto personal // IA",
     meliBadge: "2020 – Hoy",
     meliBody: "Búsqueda, recomendaciones con IA y automatización de releases para uno de los marketplaces más grandes de Latinoamérica.",
     meliFooter: "Líder técnico // Search",

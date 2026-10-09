@@ -1,6 +1,6 @@
 import type { Dictionary } from "@/lib/dictionaries";
 import Image from "next/image";
-import { companyShots, type Shot } from "@/lib/media";
+import { companyShots, projectShots, type Shot } from "@/lib/media";
 import profilePhoto from "@/assets/profile.webp";
 import { ChevronDownIcon } from "@/components/icons";
 
@@ -142,6 +142,16 @@ export default function Hero({ dict }: { dict: Dictionary }) {
           aria-hidden
           className="deck relative flex h-[520px] items-center justify-center select-none sm:h-[620px] lg:col-span-6 lg:h-[680px]"
         >
+          <BrowserCard
+            className="deck-card-0 h-[440px] w-[280px] max-lg:hidden sm:h-[520px] sm:w-[360px]"
+            domain="TalkReady"
+            badge="AI"
+            shot={projectShots["talk-ready"][0]}
+            title="TalkReady"
+            body={deck.talkBody}
+            footer={deck.talkFooter}
+            stack="Next.js · Claude"
+          />
           <BrowserCard
             className="deck-card-1 h-[440px] w-[280px] sm:h-[520px] sm:w-[360px]"
             domain="kidon.co"
