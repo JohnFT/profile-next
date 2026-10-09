@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=en/" />
+    <title>John Fonseca</title>
+    <script>
+      (function () {
+        var supported = ["en", "es"];
+        var preferred = (navigator.languages || [navigator.language || "en"])
+          .map(function (l) {
+            return l.split("-")[0].toLowerCase();
+          })
+          .find(function (l) {
+            return supported.indexOf(l) !== -1;
+          });
+        window.location.replace((preferred || "en") + "/");
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
