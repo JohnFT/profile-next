@@ -2,24 +2,54 @@ import type { Locale } from "@/lib/i18n";
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { about: string; work: string; apps: string; skills: string; mail: string };
-  hero: { location: string; title: string; intro: string };
+  nav: { about: string; work: string; apps: string; skills: string; mail: string; cta: string };
+  hero: {
+    location: string;
+    title: string;
+    intro: string;
+    status: string;
+    tagline: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    stats: { value: string; label: string }[];
+  };
+  deck: {
+    meliBadge: string;
+    meliBody: string;
+    meliFooter: string;
+    kidonBody: string;
+    kidonFooter: string;
+    almundoBody: string;
+    almundoFooter: string;
+    simpleTag: string;
+    simpleNote: string;
+    simpleNoteBody: string;
+  };
+  companies: { label: string };
   about: {
+    eyebrow: string;
     heading: string;
     body: string;
     pillars: { title: string; description: string }[];
   };
   work: {
+    eyebrow: string;
+    projectsEyebrow: string;
+    projectsSubtitle: string;
     experienceHeading: string;
     projectsHeading: string;
     roleLabel: string;
   };
   apps: {
+    eyebrow: string;
     heading: string;
     subtitle: string;
+    githubProfile: string;
+    privateRepo: string;
   };
-  skills: { heading: string };
+  skills: { eyebrow: string; heading: string; subtitle: string };
   education: {
+    eyebrow: string;
     heading: string;
     educationLabel: string;
     languagesLabel: string;
@@ -28,6 +58,7 @@ export type Dictionary = {
     english: string;
   };
   mail: {
+    eyebrow: string;
     heading: string;
     subtitle: string;
     emailLabel: string;
@@ -36,8 +67,11 @@ export type Dictionary = {
     formEmail: string;
     formMessage: string;
     formSubmit: string;
+    copyEmail: string;
+    copied: string;
+    connectLabel: string;
   };
-  footer: { copyright: string };
+  footer: { copyright: string; timezone: string; backToTop: string };
 };
 
 const en: Dictionary = {
@@ -51,14 +85,38 @@ const en: Dictionary = {
     apps: "Apps",
     skills: "Skills",
     mail: "Mail",
+    cta: "Get in touch",
   },
   hero: {
     location: "Bogotá D.C., Colombia",
     title: "Technical Leader · FullStack Engineer & Project Lead",
     intro:
       "11 years turning ideas into software and leading high-performing teams across front-end and full-stack environments.",
+    status: "Open to new opportunities",
+    tagline: "11+ yrs · Technical Lead / Full-stack / Front-end Specialist",
+    ctaPrimary: "View featured work",
+    ctaSecondary: "Get in touch",
+    stats: [
+      { value: "11+", label: "Years building software" },
+      { value: "15", label: "Engineers led" },
+      { value: "−50%", label: "Production hotfixes" },
+    ],
   },
+  deck: {
+    meliBadge: "2020 – Now",
+    meliBody: "Search, AI-powered recommendations and release automation for one of Latin America's largest marketplaces.",
+    meliFooter: "Tech lead // Search",
+    kidonBody: "Interactive experiences and games for a young audience, built with AngularJS and Sass.",
+    kidonFooter: "Front-end // UX",
+    almundoBody: "Travel booking with React Native and Angular 8, shipped through GitLab CI/CD and Docker.",
+    almundoFooter: "Front-end // DevOps",
+    simpleTag: "Payroll",
+    simpleNote: "Social security portal",
+    simpleNoteBody: "Payroll payment, reports & bank dispersal files",
+  },
+  companies: { label: "Where I've built software" },
   about: {
+    eyebrow: "Profile // Leadership",
     heading: "About",
     body: "Technical Leader with 11 years turning ideas into software and leading high-performing teams across front-end and full-stack environments. I lead teams of up to 15 people across multiple simultaneous initiatives, combining architectural vision with execution: I design high-performance solutions, automate deployments with the help of AI, and take every initiative from idea to production. I also bring Project Lead skills — managing scope, timelines, and priorities using agile development methodologies such as Scrum, Kanban, and Lean Software Development, supported by tools like Trello and Jira — and I mentor front-end teams, establishing myself as a technical reference wherever I work. I complement this with a product and UX mindset, and since 2025 I've integrated generative AI (Claude and Cursor) into my workflow to accelerate application development and automate processes.",
     pillars: [
@@ -80,26 +138,36 @@ const en: Dictionary = {
     ],
   },
   work: {
+    eyebrow: "Career // Track record",
+    projectsEyebrow: "Flagship deliveries",
+    projectsSubtitle: "Initiatives I've architected and led, from application health to AI-powered search.",
     experienceHeading: "Experience",
     projectsHeading: "Featured Projects",
     roleLabel: "Role",
   },
   apps: {
+    eyebrow: "Code & experiments",
     heading: "Apps",
     subtitle: "Personal projects built outside of work.",
+    githubProfile: "GitHub profile",
+    privateRepo: "Private repo",
   },
   skills: {
+    eyebrow: "Disciplines & stack",
     heading: "Skills",
+    subtitle: "The tools and practices I use to take products from idea to production.",
   },
   education: {
+    eyebrow: "Learning",
     heading: "Education & Languages",
     educationLabel: "Education",
     languagesLabel: "Languages",
     certificationsLabel: "Certifications & Continuing Education",
     spanish: "Spanish: Native",
-    english: "English: A2 (Basic)",
+    english: "English: B1 (Intermediate)",
   },
   mail: {
+    eyebrow: "Start a conversation",
     heading: "Let's connect",
     subtitle: "Open to new opportunities, collaborations, or a technical conversation.",
     emailLabel: "Email",
@@ -108,9 +176,14 @@ const en: Dictionary = {
     formEmail: "Email",
     formMessage: "Message",
     formSubmit: "Send message",
+    copyEmail: "Copy email",
+    copied: "Copied!",
+    connectLabel: "Find me on",
   },
   footer: {
     copyright: "John Alexander Fonseca Tumay",
+    timezone: "Bogotá · UTC−5",
+    backToTop: "Back to top",
   },
 };
 
@@ -125,14 +198,38 @@ const es: Dictionary = {
     apps: "Apps",
     skills: "Habilidades",
     mail: "Correo",
+    cta: "Contáctame",
   },
   hero: {
     location: "Bogotá D.C., Colombia",
     title: "Líder Técnico · Ingeniero FullStack y Project Lead",
     intro:
       "11 años transformando ideas en software y liderando equipos de alto rendimiento en entornos front-end y full-stack.",
+    status: "Abierto a nuevas oportunidades",
+    tagline: "11+ años · Front-end y full-stack",
+    ctaPrimary: "Ver trabajo destacado",
+    ctaSecondary: "Contáctame",
+    stats: [
+      { value: "11+", label: "Años construyendo software" },
+      { value: "15", label: "Ingenieros liderados" },
+      { value: "−50%", label: "Hotfixes en producción" },
+    ],
   },
+  deck: {
+    meliBadge: "2020 – Hoy",
+    meliBody: "Búsqueda, recomendaciones con IA y automatización de releases para uno de los marketplaces más grandes de Latinoamérica.",
+    meliFooter: "Líder técnico // Search",
+    kidonBody: "Experiencias interactivas y juegos para una audiencia joven, construidos con AngularJS y Sass.",
+    kidonFooter: "Front-end // UX",
+    almundoBody: "Reservas de viajes con React Native y Angular 8, desplegadas con CI/CD en GitLab y Docker.",
+    almundoFooter: "Front-end // DevOps",
+    simpleTag: "Nómina",
+    simpleNote: "Portal de seguridad social",
+    simpleNoteBody: "Pago de nómina, reportes y archivos de dispersión bancaria",
+  },
+  companies: { label: "Donde he construido software" },
   about: {
+    eyebrow: "Perfil // Liderazgo",
     heading: "Acerca de",
     body: "Líder Técnico con 11 años transformando ideas en software y liderando equipos de alto rendimiento en entornos front-end y full-stack. Lidero equipos de hasta 15 personas en múltiples iniciativas simultáneas, combinando visión arquitectónica con ejecución: diseño soluciones de alto rendimiento, automatizo despliegues con ayuda de IA y llevo cada iniciativa desde la idea hasta producción. También aporto habilidades de Project Lead — gestionando alcance, tiempos y prioridades con metodologías ágiles como Scrum, Kanban y Lean Software Development, apoyado en herramientas como Trello y Jira — y mentoreo equipos de front-end, consolidándome como referente técnico donde trabajo. Complemento esto con una mentalidad de producto y UX, y desde 2025 he integrado IA generativa (Claude y Cursor) en mi flujo de trabajo para acelerar el desarrollo de aplicaciones y automatizar procesos.",
     pillars: [
@@ -154,18 +251,27 @@ const es: Dictionary = {
     ],
   },
   work: {
+    eyebrow: "Carrera // Trayectoria",
+    projectsEyebrow: "Entregas destacadas",
+    projectsSubtitle: "Iniciativas que he diseñado y liderado, desde la salud de la aplicación hasta búsqueda con IA.",
     experienceHeading: "Experiencia",
     projectsHeading: "Proyectos Destacados",
     roleLabel: "Rol",
   },
   apps: {
+    eyebrow: "Código y experimentos",
     heading: "Apps",
     subtitle: "Proyectos personales construidos fuera del trabajo.",
+    githubProfile: "Perfil de GitHub",
+    privateRepo: "Repo privado",
   },
   skills: {
+    eyebrow: "Disciplinas y stack",
     heading: "Habilidades",
+    subtitle: "Las herramientas y prácticas que uso para llevar productos de la idea a producción.",
   },
   education: {
+    eyebrow: "Aprendizaje",
     heading: "Educación e Idiomas",
     educationLabel: "Educación",
     languagesLabel: "Idiomas",
@@ -174,6 +280,7 @@ const es: Dictionary = {
     english: "Inglés: A2 (Básico)",
   },
   mail: {
+    eyebrow: "Iniciemos una conversación",
     heading: "Conectemos",
     subtitle: "Abierto a nuevas oportunidades, colaboraciones o una conversación técnica.",
     emailLabel: "Correo",
@@ -182,9 +289,14 @@ const es: Dictionary = {
     formEmail: "Correo",
     formMessage: "Mensaje",
     formSubmit: "Enviar mensaje",
+    copyEmail: "Copiar correo",
+    copied: "¡Copiado!",
+    connectLabel: "Encuéntrame en",
   },
   footer: {
     copyright: "John Alexander Fonseca Tumay",
+    timezone: "Bogotá · UTC−5",
+    backToTop: "Volver arriba",
   },
 };
 

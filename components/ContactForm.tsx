@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import type { Dictionary } from "@/lib/dictionaries";
 
 const inputClass =
-  "w-full rounded-lg border border-glass bg-surface-1 px-4 py-3 text-sm text-text placeholder:text-text-muted/70 outline-none transition-colors focus:border-accent";
+  "w-full rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-text placeholder:text-text-subtle outline-none transition-colors focus:border-accent";
 
 export default function ContactForm({ dict }: { dict: Dictionary }) {
   const [name, setName] = useState("");
@@ -21,10 +21,10 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-8 space-y-5 rounded-2xl border border-glass bg-surface-2 p-6 backdrop-blur-xl sm:p-8"
+      className="space-y-5 rounded-2xl border border-line bg-card p-6 sm:p-8"
     >
       <div>
-        <label htmlFor="name" className="font-label block text-xs font-semibold tracking-wide text-text-muted">
+        <label htmlFor="name" className="block font-mono text-xs tracking-wider text-text-muted uppercase">
           {dict.mail.formName}
         </label>
         <input
@@ -37,7 +37,7 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
         />
       </div>
       <div>
-        <label htmlFor="email" className="font-label block text-xs font-semibold tracking-wide text-text-muted">
+        <label htmlFor="email" className="block font-mono text-xs tracking-wider text-text-muted uppercase">
           {dict.mail.formEmail}
         </label>
         <input
@@ -50,7 +50,7 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
         />
       </div>
       <div>
-        <label htmlFor="message" className="font-label block text-xs font-semibold tracking-wide text-text-muted">
+        <label htmlFor="message" className="block font-mono text-xs tracking-wider text-text-muted uppercase">
           {dict.mail.formMessage}
         </label>
         <textarea
@@ -64,7 +64,7 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
       </div>
       <button
         type="submit"
-        className="w-full rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-shadow hover:shadow-[0_0_24px_-4px_var(--color-accent)]"
+        className="w-full rounded-lg bg-accent px-5 py-3 font-mono text-xs font-semibold tracking-wider text-on-accent uppercase transition-colors hover:bg-accent-hover"
       >
         {dict.mail.formSubmit}
       </button>

@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { locales, isLocale, defaultLocale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
-import ShaderBackground from "@/components/ShaderBackground";
 import TopNav from "@/components/TopNav";
 import BottomTabBar from "@/components/BottomTabBar";
 
-const inter = Inter({
-  variable: "--font-inter",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
@@ -55,10 +49,9 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-text">
-        <ShaderBackground />
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-bg text-text">
         <TopNav locale={lang} dict={dict} />
         <div className="flex-1 pb-20 sm:pb-0">{children}</div>
         <BottomTabBar locale={lang} dict={dict} />

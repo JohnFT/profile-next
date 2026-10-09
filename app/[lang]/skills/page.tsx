@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
-import Reveal from "@/components/Reveal";
+import SectionHeader from "@/components/SectionHeader";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 
@@ -16,14 +16,10 @@ export default async function SkillsPage({
   const dict = getDictionary(lang);
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-16">
-      <Reveal>
-        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{dict.nav.skills}</h1>
-      </Reveal>
-      <div className="mt-10">
-        <Skills locale={lang} dict={dict} />
-        <Education locale={lang} dict={dict} />
-      </div>
+    <main className="mx-auto w-full max-w-[1440px] px-4 py-16 sm:px-6 lg:px-12 lg:py-24">
+      <SectionHeader as="h1" eyebrow={dict.skills.eyebrow} title={dict.skills.heading} subtitle={dict.skills.subtitle} />
+      <Skills locale={lang} />
+      <Education locale={lang} dict={dict} />
     </main>
   );
 }

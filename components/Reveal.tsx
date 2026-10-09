@@ -10,18 +10,16 @@ export default function Reveal({
   children: ReactNode;
   delay?: number;
 }) {
+  // Always render the same element so server and client HTML match;
+  // reduced motion only skips the animation timing.
   const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return <>{children}</>;
-  }
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: "easeOut", delay }}
+      transition={reduceMotion ? { duration: 0 } : { duration: 0.5, ease: "easeOut", delay }}
     >
       {children}
     </motion.div>

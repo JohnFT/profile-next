@@ -1,32 +1,28 @@
 import type { Project } from "@/lib/projects";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, privateLabel }: { project: Project; privateLabel: string }) {
   return (
-    <article className="h-full rounded-xl border border-glass bg-surface-2 p-6 backdrop-blur-xl transition-all duration-200 hover:-translate-y-1 hover:border-accent-2/40 hover:shadow-[0_0_32px_-8px_var(--color-accent-2)]">
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="font-semibold">{project.name}</h3>
-        {project.github && (
+    <article className="flex h-full flex-col justify-between rounded-xl border border-white/[0.07] bg-card p-6 transition-colors hover:border-white/20">
+      <div>
+        <div className="mb-3 font-mono text-xs text-accent uppercase">{project.stack.slice(0, 2).join(" / ")}</div>
+        <h3 className="mb-2 font-mono text-lg font-bold">{project.name}</h3>
+        <p className="text-xs leading-relaxed text-text-muted">{project.description}</p>
+      </div>
+      <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/5 pt-4 font-mono text-xs">
+        <span className="truncate text-text-subtle">{project.stack.slice(2).join(" · ")}</span>
+        {project.github ? (
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 text-sm text-accent-2 underline-offset-4 hover:underline"
+            className="shrink-0 text-zinc-300 transition-colors hover:text-accent"
           >
-            GitHub ↗
+            GitHub →
           </a>
+        ) : (
+          <span className="shrink-0 text-text-subtle">{privateLabel}</span>
         )}
       </div>
-      <p className="mt-2 text-sm leading-6 text-text-muted">{project.description}</p>
-      <ul className="mt-4 flex flex-wrap gap-2">
-        {project.stack.map((tech) => (
-          <li
-            key={tech}
-            className="font-label rounded-full bg-surface-3 px-2.5 py-1 text-xs text-text-muted"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
     </article>
   );
 }

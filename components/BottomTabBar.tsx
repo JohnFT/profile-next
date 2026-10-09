@@ -17,7 +17,7 @@ export default function BottomTabBar({ dict }: { locale: Locale; dict: Dictionar
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 z-40 flex w-full items-center justify-around border-t border-glass bg-bg/85 px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-2xl sm:hidden">
+    <nav className="fixed bottom-0 left-0 z-40 flex w-full items-center justify-around border-t border-line bg-bg/90 px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-2xl sm:hidden">
       {links.map((link) => {
         const isActive = active === link.id;
         return (
@@ -31,7 +31,7 @@ export default function BottomTabBar({ dict }: { locale: Locale; dict: Dictionar
             }
           >
             <link.Icon className="h-5 w-5" />
-            <span className="font-label text-[10px] font-semibold tracking-wide">
+            <span className="font-mono text-[10px] font-semibold tracking-wide">
               {link.label}
             </span>
           </a>

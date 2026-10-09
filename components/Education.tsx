@@ -3,41 +3,42 @@ import { educationContent } from "@/lib/education";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 
+const labelClass = "font-mono text-xs tracking-widest text-accent uppercase";
+
 export default function Education({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const content = educationContent[locale];
 
   return (
-    <section className="mt-16">
+    <div className="mt-20">
       <Reveal>
-        <h2 className="text-xl font-semibold tracking-tight">{dict.education.heading}</h2>
+        <span className="mb-2 block font-mono text-xs tracking-widest text-accent uppercase">
+          {dict.education.eyebrow}
+        </span>
+        <h3 className="text-3xl font-bold tracking-tight">{dict.education.heading}</h3>
       </Reveal>
       <Reveal>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-glass bg-surface-2 p-6 backdrop-blur-xl">
-            <h3 className="font-label text-xs font-semibold tracking-wide text-accent">
-              {dict.education.educationLabel}
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-text-muted">{content.degree}</p>
-            <h3 className="font-label mt-6 text-xs font-semibold tracking-wide text-accent">
-              {dict.education.languagesLabel}
-            </h3>
-            <ul className="mt-2 space-y-1 text-sm leading-6 text-text-muted">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-line bg-card p-8">
+            <h4 className={labelClass}>{dict.education.educationLabel}</h4>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-300">{content.degree}</p>
+            <h4 className={`${labelClass} mt-8`}>{dict.education.languagesLabel}</h4>
+            <ul className="mt-3 space-y-1 font-mono text-xs text-zinc-300">
               <li>{dict.education.spanish}</li>
               <li>{dict.education.english}</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-glass bg-surface-2 p-6 backdrop-blur-xl">
-            <h3 className="font-label text-xs font-semibold tracking-wide text-accent">
-              {dict.education.certificationsLabel}
-            </h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-text-muted">
+          <div className="rounded-2xl border border-line bg-card p-8">
+            <h4 className={labelClass}>{dict.education.certificationsLabel}</h4>
+            <ul className="mt-3 space-y-3 text-sm leading-relaxed text-text-muted">
               {content.certifications.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="border-l border-line-strong pl-4">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
         </div>
       </Reveal>
-    </section>
+    </div>
   );
 }

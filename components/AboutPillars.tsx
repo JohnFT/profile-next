@@ -1,28 +1,18 @@
 import Reveal from "@/components/Reveal";
-import { PerformanceIcon, TeamIcon, AiIcon } from "@/components/icons";
 import type { Dictionary } from "@/lib/dictionaries";
-
-const icons = [PerformanceIcon, TeamIcon, AiIcon];
 
 export default function AboutPillars({ dict }: { dict: Dictionary }) {
   return (
-    <div className="mt-8 space-y-4">
-      {dict.about.pillars.map((pillar, index) => {
-        const Icon = icons[index];
-        return (
-          <Reveal key={pillar.title} delay={Math.min(index * 0.08, 0.24)}>
-            <div className="flex gap-4 rounded-xl border border-glass bg-surface-2 p-6 backdrop-blur-xl">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-3 text-accent">
-                <Icon className="h-5 w-5" />
-              </div>
-              <div>
-                <h3 className="font-semibold">{pillar.title}</h3>
-                <p className="mt-1 text-sm leading-6 text-text-muted">{pillar.description}</p>
-              </div>
-            </div>
-          </Reveal>
-        );
-      })}
+    <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
+      {dict.about.pillars.map((pillar, index) => (
+        <Reveal key={pillar.title} delay={Math.min(index * 0.08, 0.24)}>
+          <div className="h-full rounded-xl border border-white/[0.06] bg-card-2 p-8 transition-colors hover:border-white/20">
+            <div className="mb-4 font-mono text-sm text-accent">{`${String(index + 1).padStart(2, "0")} //`}</div>
+            <h3 className="mb-3 text-xl font-bold">{pillar.title}</h3>
+            <p className="text-sm leading-relaxed text-text-muted">{pillar.description}</p>
+          </div>
+        </Reveal>
+      ))}
     </div>
   );
 }

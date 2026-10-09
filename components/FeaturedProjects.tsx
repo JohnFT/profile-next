@@ -7,26 +7,29 @@ export default function FeaturedProjects({ locale, dict }: { locale: Locale; dic
   const projectList = featuredProjects[locale];
 
   return (
-    <section className="mt-16">
-      <Reveal>
-        <h2 className="text-xl font-semibold tracking-tight">{dict.work.projectsHeading}</h2>
-      </Reveal>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        {projectList.map((project, index) => (
-          <Reveal key={project.name} delay={Math.min(index * 0.08, 0.32)}>
-            <article className="h-full rounded-xl border border-glass bg-surface-2 p-6 backdrop-blur-xl transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_0_32px_-8px_var(--color-accent)]">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="font-semibold">{project.name}</h3>
-                <span className="font-label shrink-0 text-xs text-text-muted">{project.period}</span>
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      {projectList.map((project, index) => (
+        <Reveal key={project.name} delay={Math.min((index % 2) * 0.08, 0.16)}>
+          <article className="group flex h-full flex-col justify-between rounded-2xl border border-line bg-card p-8 transition-colors duration-300 hover:border-accent/40 lg:p-10">
+            <div>
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <span className="rounded border border-white/5 bg-white/[0.04] px-3 py-1 font-mono text-xs text-text-muted">
+                  {project.period}
+                </span>
+                <span className="font-mono text-xs font-semibold text-accent uppercase">{project.highlight}</span>
               </div>
-              <p className="mt-2 text-sm leading-6 text-text-muted">{project.description}</p>
-              <p className="mt-3 text-xs text-text-muted">
-                {dict.work.roleLabel}: {project.role}
-              </p>
-            </article>
-          </Reveal>
-        ))}
-      </div>
-    </section>
+              <h3 className="mb-3 text-2xl font-bold transition-colors group-hover:text-accent lg:text-3xl">
+                {project.name}
+              </h3>
+              <p className="mb-8 text-sm leading-relaxed text-text-muted">{project.description}</p>
+            </div>
+            <div className="rounded-xl border border-white/[0.05] bg-black/50 p-5 font-mono text-xs">
+              <span className="text-text-subtle">{dict.work.roleLabel}: </span>
+              <span className="text-zinc-200">{project.role}</span>
+            </div>
+          </article>
+        </Reveal>
+      ))}
+    </div>
   );
 }
