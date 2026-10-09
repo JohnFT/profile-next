@@ -42,6 +42,8 @@ export type Dictionary = {
     projectsHeading: string;
     roleLabel: string;
     prevShot: string;
+    prevProject: string;
+    nextProject: string;
     nextShot: string;
     showShot: string;
   };
@@ -165,6 +167,8 @@ const en: Dictionary = {
     projectsHeading: "Featured Projects",
     roleLabel: "Role",
     prevShot: "Previous screenshot",
+    prevProject: "Previous project",
+    nextProject: "Next project",
     nextShot: "Next screenshot",
     showShot: "Show screenshot",
   },
@@ -305,6 +309,8 @@ const es: Dictionary = {
     projectsHeading: "Proyectos Destacados",
     roleLabel: "Rol",
     prevShot: "Captura anterior",
+    prevProject: "Proyecto anterior",
+    nextProject: "Proyecto siguiente",
     nextShot: "Captura siguiente",
     showShot: "Ver captura",
   },
