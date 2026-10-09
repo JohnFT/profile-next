@@ -51,7 +51,7 @@ export default async function Home({
           <FeaturedProjects locale={lang} dict={dict} />
           <div className="mt-24">
             <SectionHeader eyebrow={dict.work.eyebrow} title={dict.work.experienceHeading} />
-            <Experience locale={lang} />
+            <Experience locale={lang} dict={dict} />
           </div>
         </div>
       </section>
@@ -83,7 +83,7 @@ export default async function Home({
       <section id="skills" className="scroll-mt-20 border-t border-line bg-bg-alt">
         <div className={`${container} py-24`}>
           <SectionHeader eyebrow={dict.skills.eyebrow} title={dict.skills.heading} subtitle={dict.skills.subtitle} />
-          <Skills locale={lang} />
+          <Skills locale={lang} dict={dict} />
           <Education locale={lang} dict={dict} />
         </div>
       </section>

@@ -1,5 +1,8 @@
 import Reveal from "@/components/Reveal";
 import { educationContent } from "@/lib/education";
+import { certificates, PLATZI_PROFILE } from "@/lib/certificates";
+import CertificateSlider from "@/components/CertificateSlider";
+import { ExternalIcon } from "@/components/icons";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionaries";
 
@@ -39,6 +42,39 @@ export default function Education({ locale, dict }: { locale: Locale; dict: Dict
           </div>
         </div>
       </Reveal>
+      <Reveal>
+        <div className="mt-10 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+          <div>
+            <h4 className={labelClass}>{dict.education.verifiedHeading}</h4>
+            <p className="mt-2 text-sm text-text-muted">
+              <span className="font-mono text-accent">
+                {certificates.length} {dict.education.certCount}
+              </span>{" "}
+              · {dict.education.verifiedSubtitle}
+            </p>
+          </div>
+          <a
+            href={PLATZI_PROFILE}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex shrink-0 items-center gap-1.5 font-mono text-xs text-text-muted uppercase transition-colors hover:text-white"
+          >
+            {dict.education.allOnPlatzi}
+            <ExternalIcon className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </Reveal>
+      <div className="mt-6">
+        <CertificateSlider
+          certificates={certificates}
+          labels={{
+            prev: dict.education.prevDiploma,
+            next: dict.education.nextDiploma,
+            view: dict.education.viewDiploma,
+            categories: dict.education.certCategories,
+          }}
+        />
+      </div>
     </div>
   );
 }

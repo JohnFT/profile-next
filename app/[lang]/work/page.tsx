@@ -26,7 +26,7 @@ export default async function WorkPage({
       <FeaturedProjects locale={lang} dict={dict} />
       <div className="mt-24">
         <SectionHeader eyebrow={dict.work.eyebrow} title={dict.work.experienceHeading} />
-        <Experience locale={lang} />
+        <Experience locale={lang} dict={dict} />
       </div>
     </main>
   );

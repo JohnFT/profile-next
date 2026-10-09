@@ -39,6 +39,9 @@ export type Dictionary = {
     experienceHeading: string;
     projectsHeading: string;
     roleLabel: string;
+    prevShot: string;
+    nextShot: string;
+    showShot: string;
   };
   apps: {
     eyebrow: string;
@@ -47,13 +50,21 @@ export type Dictionary = {
     githubProfile: string;
     privateRepo: string;
   };
-  skills: { eyebrow: string; heading: string; subtitle: string };
+  skills: { eyebrow: string; heading: string; subtitle: string; year: string; years: string; scale: string };
   education: {
     eyebrow: string;
     heading: string;
     educationLabel: string;
     languagesLabel: string;
     certificationsLabel: string;
+    verifiedHeading: string;
+    verifiedSubtitle: string;
+    viewDiploma: string;
+    prevDiploma: string;
+    nextDiploma: string;
+    certCount: string;
+    certCategories: Record<"english" | "frontend" | "backend" | "management" | "design", string>;
+    allOnPlatzi: string;
     spanish: string;
     english: string;
   };
@@ -121,6 +132,11 @@ const en: Dictionary = {
     body: "Technical Leader with 11 years turning ideas into software and leading high-performing teams across front-end and full-stack environments. I lead teams of up to 15 people across multiple simultaneous initiatives, combining architectural vision with execution: I design high-performance solutions, automate deployments with the help of AI, and take every initiative from idea to production. I also bring Project Lead skills — managing scope, timelines, and priorities using agile development methodologies such as Scrum, Kanban, and Lean Software Development, supported by tools like Trello and Jira — and I mentor front-end teams, establishing myself as a technical reference wherever I work. I complement this with a product and UX mindset, and since 2025 I've integrated generative AI (Claude and Cursor) into my workflow to accelerate application development and automate processes.",
     pillars: [
       {
+        title: "Solid Full-Stack Development",
+        description:
+          "11 years writing production code across front-end, back-end, and mobile: from React, Angular, and Node.js to Java services and React Native apps, shipped with CI/CD and Docker.",
+      },
+      {
         title: "Architecture & Performance",
         description:
           "Designing scalable, high-performance web architectures and improving Web Vitals and reliability at large scale.",
@@ -144,6 +160,9 @@ const en: Dictionary = {
     experienceHeading: "Experience",
     projectsHeading: "Featured Projects",
     roleLabel: "Role",
+    prevShot: "Previous screenshot",
+    nextShot: "Next screenshot",
+    showShot: "Show screenshot",
   },
   apps: {
     eyebrow: "Code & experiments",
@@ -156,6 +175,9 @@ const en: Dictionary = {
     eyebrow: "Disciplines & stack",
     heading: "Skills",
     subtitle: "The tools and practices I use to take products from idea to production.",
+    year: "yr",
+    years: "yrs",
+    scale: "Years of hands-on experience, on an 11-year career scale",
   },
   education: {
     eyebrow: "Learning",
@@ -163,6 +185,20 @@ const en: Dictionary = {
     educationLabel: "Education",
     languagesLabel: "Languages",
     certificationsLabel: "Certifications & Continuing Education",
+    verifiedHeading: "Verified certificates",
+    verifiedSubtitle: "open and verify any of them on Platzi or Udemy.",
+    viewDiploma: "Verify on",
+    prevDiploma: "Previous diploma",
+    nextDiploma: "Next diploma",
+    certCount: "public diplomas",
+    certCategories: {
+      frontend: "Frontend",
+      backend: "Backend & Tools",
+      management: "Management & Agile",
+      english: "English",
+      design: "Design & Business",
+    },
+    allOnPlatzi: "Platzi profile",
     spanish: "Spanish: Native",
     english: "English: B1 (Intermediate)",
   },
@@ -234,6 +270,11 @@ const es: Dictionary = {
     body: "Líder Técnico con 11 años transformando ideas en software y liderando equipos de alto rendimiento en entornos front-end y full-stack. Lidero equipos de hasta 15 personas en múltiples iniciativas simultáneas, combinando visión arquitectónica con ejecución: diseño soluciones de alto rendimiento, automatizo despliegues con ayuda de IA y llevo cada iniciativa desde la idea hasta producción. También aporto habilidades de Project Lead — gestionando alcance, tiempos y prioridades con metodologías ágiles como Scrum, Kanban y Lean Software Development, apoyado en herramientas como Trello y Jira — y mentoreo equipos de front-end, consolidándome como referente técnico donde trabajo. Complemento esto con una mentalidad de producto y UX, y desde 2025 he integrado IA generativa (Claude y Cursor) en mi flujo de trabajo para acelerar el desarrollo de aplicaciones y automatizar procesos.",
     pillars: [
       {
+        title: "Desarrollo Full-Stack Sólido",
+        description:
+          "11 años escribiendo código en producción en front-end, back-end y móvil: de React, Angular y Node.js a servicios en Java y apps en React Native, entregados con CI/CD y Docker.",
+      },
+      {
         title: "Arquitectura y Rendimiento",
         description:
           "Diseño de arquitecturas web escalables y de alto rendimiento, mejorando Web Vitals y confiabilidad a gran escala.",
@@ -257,6 +298,9 @@ const es: Dictionary = {
     experienceHeading: "Experiencia",
     projectsHeading: "Proyectos Destacados",
     roleLabel: "Rol",
+    prevShot: "Captura anterior",
+    nextShot: "Captura siguiente",
+    showShot: "Ver captura",
   },
   apps: {
     eyebrow: "Código y experimentos",
@@ -269,6 +313,9 @@ const es: Dictionary = {
     eyebrow: "Disciplinas y stack",
     heading: "Habilidades",
     subtitle: "Las herramientas y prácticas que uso para llevar productos de la idea a producción.",
+    year: "año",
+    years: "años",
+    scale: "Años de experiencia práctica, sobre una carrera de 11 años",
   },
   education: {
     eyebrow: "Aprendizaje",
@@ -276,8 +323,22 @@ const es: Dictionary = {
     educationLabel: "Educación",
     languagesLabel: "Idiomas",
     certificationsLabel: "Certificaciones y Educación Continua",
+    verifiedHeading: "Certificados verificables",
+    verifiedSubtitle: "puedes abrir y comprobar cualquiera en Platzi o Udemy.",
+    viewDiploma: "Verificar en",
+    prevDiploma: "Diploma anterior",
+    nextDiploma: "Diploma siguiente",
+    certCount: "diplomas públicos",
+    certCategories: {
+      frontend: "Frontend",
+      backend: "Backend y Herramientas",
+      management: "Gestión y Agilidad",
+      english: "Inglés",
+      design: "Diseño y Negocios",
+    },
+    allOnPlatzi: "Perfil en Platzi",
     spanish: "Español: Nativo",
-    english: "Inglés: A2 (Básico)",
+    english: "Inglés: B1 (Intermedio)",
   },
   mail: {
     eyebrow: "Iniciemos una conversación",

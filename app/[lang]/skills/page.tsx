@@ -18,7 +18,7 @@ export default async function SkillsPage({
   return (
     <main className="mx-auto w-full max-w-[1440px] px-4 py-16 sm:px-6 lg:px-12 lg:py-24">
       <SectionHeader as="h1" eyebrow={dict.skills.eyebrow} title={dict.skills.heading} subtitle={dict.skills.subtitle} />
-      <Skills locale={lang} />
+      <Skills locale={lang} dict={dict} />
       <Education locale={lang} dict={dict} />
     </main>
   );
