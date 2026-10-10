@@ -8,6 +8,8 @@ import { getDictionary } from "@/lib/dictionaries";
 import TopNav from "@/components/TopNav";
 import BottomTabBar from "@/components/BottomTabBar";
 
+const SITE_ORIGIN = "https://johnft.github.io";
+
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
@@ -31,8 +33,19 @@ export async function generateMetadata({
   const locale = isLocale(lang) ? lang : defaultLocale;
   const dict = getDictionary(locale);
   return {
+    // Absolute base so link previews (LinkedIn, WhatsApp…) resolve the share image under the Pages base path.
+    metadataBase: new URL(`${SITE_ORIGIN}${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/`),
     title: dict.meta.title,
     description: dict.meta.description,
+    openGraph: {
+      type: "website",
+      url: `${locale}/`,
+      title: dict.meta.title,
+      description: dict.meta.description,
+      locale: locale === "es" ? "es_CO" : "en_US",
+      images: [{ url: "og.png", width: 1200, height: 630, alt: dict.meta.title }],
+    },
+    twitter: { card: "summary_large_image", images: ["og.png"] },
   };
 }
 

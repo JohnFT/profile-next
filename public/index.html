@@ -3,7 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="refresh" content="0; url=en/" />
-    <title>John Fonseca</title>
+    <title>John Alexander Fonseca Tumay</title>
+    <meta name="description" content="Technical Leader · FullStack Engineer & Project Lead — portfolio and experience." />
+    <!-- Link previews: crawlers don't run the redirect below, so the share card lives here too -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://johnft.github.io/profile-next/" />
+    <meta property="og:title" content="John Alexander Fonseca Tumay" />
+    <meta property="og:description" content="Technical Leader · FullStack Engineer & Project Lead — portfolio and experience." />
+    <meta property="og:image" content="https://johnft.github.io/profile-next/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://johnft.github.io/profile-next/og.png" />
     <script>
       (function () {
         var supported = ["en", "es"];
@@ -14,7 +25,8 @@
           .find(function (l) {
             return supported.indexOf(l) !== -1;
           });
-        window.location.replace((preferred || "en") + "/");
+        // Keep ?utm_source=… and #hash so analytics still sees where the visit came from.
+        window.location.replace((preferred || "en") + "/" + window.location.search + window.location.hash);
       })();
     </script>
   </head>
