@@ -22,6 +22,7 @@ export default function SideProjects({ locale, dict }: { locale: Locale; dict: D
             locale={locale}
             shots={projectShots[project.slug]}
             privateLabel={dict.apps.privateRepo}
+            demoLabel={dict.apps.liveDemo}
             sliderLabels={sliderLabels}
           />
         </Reveal>

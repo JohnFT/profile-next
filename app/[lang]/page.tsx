@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import CompanyRibbon from "@/components/CompanyRibbon";
 import SectionHeader from "@/components/SectionHeader";
 import AboutPillars from "@/components/AboutPillars";
+import AboutCompanies from "@/components/AboutCompanies";
 import Experience from "@/components/Experience";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import SideProjects from "@/components/SideProjects";
@@ -30,13 +31,18 @@ export default async function Home({
   return (
     <main className="flex flex-1 flex-col">
       <section id="about" className="scroll-mt-20">
-        <Hero dict={dict} />
+        <Hero dict={dict} locale={lang} />
         <CompanyRibbon dict={dict} />
         <div className={`${container} py-24 lg:py-32`}>
           <SectionHeader eyebrow={dict.about.eyebrow} title={dict.about.heading} />
-          <Reveal>
-            <p className="max-w-4xl text-lg leading-relaxed font-light text-zinc-300">{dict.about.body}</p>
-          </Reveal>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center lg:gap-16">
+            <Reveal>
+              <p className="max-w-4xl text-lg leading-relaxed font-light text-zinc-300">{dict.about.body}</p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <AboutCompanies locale={lang} />
+            </Reveal>
+          </div>
           <AboutPillars dict={dict} />
         </div>
       </section>

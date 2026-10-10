@@ -14,18 +14,15 @@ export type Dictionary = {
     stats: { value: string; label: string }[];
   };
   deck: {
-    talkBody: string;
-    talkFooter: string;
+    careerLabel: string;
+    sideLabel: string;
     meliBadge: string;
-    meliBody: string;
     meliFooter: string;
-    kidonBody: string;
     kidonFooter: string;
-    almundoBody: string;
     almundoFooter: string;
-    simpleTag: string;
-    simpleNote: string;
-    simpleNoteBody: string;
+    simpleFooter: string;
+    talkFooter: string;
+    farmFooter: string;
   };
   companies: { label: string };
   about: {
@@ -53,6 +50,7 @@ export type Dictionary = {
     subtitle: string;
     githubProfile: string;
     privateRepo: string;
+    liveDemo: string;
   };
   skills: { eyebrow: string; heading: string; subtitle: string; year: string; years: string; scale: string };
   education: {
@@ -118,18 +116,15 @@ const en: Dictionary = {
     ],
   },
   deck: {
-    talkBody: "AI-powered English coaching: personalized curriculum, roleplay, shadowing and interview prep with Claude and OpenAI.",
-    talkFooter: "Side project // AI",
+    careerLabel: "Career",
+    sideLabel: "Side projects",
     meliBadge: "2020 – Now",
-    meliBody: "Search, AI-powered recommendations and release automation for one of Latin America's largest marketplaces.",
     meliFooter: "Tech lead // Search",
-    kidonBody: "Interactive experiences and games for a young audience, built with AngularJS and Sass.",
     kidonFooter: "Front-end // UX",
-    almundoBody: "Travel booking with React Native and Angular 8, shipped through GitLab CI/CD and Docker.",
     almundoFooter: "Front-end // DevOps",
-    simpleTag: "Payroll",
-    simpleNote: "Social security portal",
-    simpleNoteBody: "Payroll payment, reports & bank dispersal files",
+    simpleFooter: "Payroll // Social security",
+    talkFooter: "AI English coaching",
+    farmFooter: "Ranch & livestock app",
   },
   companies: { label: "Where I've built software" },
   about: {
@@ -178,6 +173,7 @@ const en: Dictionary = {
     subtitle: "Personal projects built outside of work.",
     githubProfile: "GitHub profile",
     privateRepo: "Private repo",
+    liveDemo: "Live demo",
   },
   skills: {
     eyebrow: "Disciplines & stack",
@@ -260,18 +256,15 @@ const es: Dictionary = {
     ],
   },
   deck: {
-    talkBody: "Coaching de inglés con IA: currículo personalizado, roleplay, shadowing y preparación de entrevistas con Claude y OpenAI.",
-    talkFooter: "Proyecto personal // IA",
+    careerLabel: "Trayectoria",
+    sideLabel: "Proyectos personales",
     meliBadge: "2020 – Hoy",
-    meliBody: "Búsqueda, recomendaciones con IA y automatización de releases para uno de los marketplaces más grandes de Latinoamérica.",
     meliFooter: "Líder técnico // Search",
-    kidonBody: "Experiencias interactivas y juegos para una audiencia joven, construidos con AngularJS y Sass.",
     kidonFooter: "Front-end // UX",
-    almundoBody: "Reservas de viajes con React Native y Angular 8, desplegadas con CI/CD en GitLab y Docker.",
     almundoFooter: "Front-end // DevOps",
-    simpleTag: "Nómina",
-    simpleNote: "Portal de seguridad social",
-    simpleNoteBody: "Pago de nómina, reportes y archivos de dispersión bancaria",
+    simpleFooter: "Nómina // Seguridad social",
+    talkFooter: "Coaching de inglés con IA",
+    farmFooter: "App de ranchos y ganado",
   },
   companies: { label: "Donde he construido software" },
   about: {
@@ -320,6 +313,7 @@ const es: Dictionary = {
     subtitle: "Proyectos personales construidos fuera del trabajo.",
     githubProfile: "Perfil de GitHub",
     privateRepo: "Repo privado",
+    liveDemo: "Ver demo",
   },
   skills: {
     eyebrow: "Disciplinas y stack",

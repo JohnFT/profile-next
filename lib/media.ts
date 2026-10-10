@@ -14,10 +14,16 @@ import kidon1 from "@/assets/work/kidon-1.webp";
 import kidon2 from "@/assets/work/kidon-2.webp";
 import kidon3 from "@/assets/work/kidon-3.webp";
 import simple1 from "@/assets/work/simple-1.webp";
-import talkready1 from "@/assets/work/talkready-1.webp";
+import talkready5 from "@/assets/work/talkready-5.webp";
+import talkready6 from "@/assets/work/talkready-6.webp";
 import talkready2 from "@/assets/work/talkready-2.webp";
 import talkready3 from "@/assets/work/talkready-3.webp";
-import talkready4 from "@/assets/work/talkready-4.webp";
+import animalfarm0 from "@/assets/work/animalfarm-0.webp";
+import animalfarm1 from "@/assets/work/animalfarm-1.webp";
+import animalfarm2 from "@/assets/work/animalfarm-2.webp";
+import animalfarm3 from "@/assets/work/animalfarm-3.webp";
+import animalfarm4 from "@/assets/work/animalfarm-4.webp";
+import animalfarm5 from "@/assets/work/animalfarm-5.webp";
 
 export type Shot = { src: StaticImageData; alt: Record<Locale, string> };
 
@@ -53,9 +59,17 @@ export const companyShots: Record<string, Shot[]> = {
 // Keyed by the project slug used in lib/projects.ts.
 export const projectShots: Record<string, Shot[]> = {
   "talk-ready": [
-    { src: talkready1, alt: { en: "TalkReady AI-generated stories", es: "Historias generadas con IA en TalkReady" } },
+    { src: talkready5, alt: { en: "TalkReady AI roleplays", es: "Roleplays con IA en TalkReady" } },
+    { src: talkready6, alt: { en: "TalkReady AI-generated stories", es: "Historias generadas con IA en TalkReady" } },
     { src: talkready2, alt: { en: "TalkReady practice lesson", es: "Lección de práctica en TalkReady" } },
     { src: talkready3, alt: { en: "TalkReady dashboard and AI modes", es: "Panel y modos de IA de TalkReady" } },
-    { src: talkready4, alt: { en: "TalkReady level completed", es: "Nivel completado en TalkReady" } },
+  ],
+  "animal-farm": [
+    { src: animalfarm0, alt: { en: "Animal Farm (MyRancho) sign-in screen", es: "Pantalla de inicio de sesión de Animal Farm (MyRancho)" } },
+    { src: animalfarm1, alt: { en: "Animal Farm ranch list with alerts", es: "Lista de ranchos con alertas en Animal Farm" } },
+    { src: animalfarm2, alt: { en: "Animal Farm ranch dashboard and key metrics", es: "Panel del rancho e indicadores clave en Animal Farm" } },
+    { src: animalfarm3, alt: { en: "Animal Farm task calendar", es: "Calendario de tareas en Animal Farm" } },
+    { src: animalfarm4, alt: { en: "Animal Farm livestock inventory", es: "Inventario de ganado en Animal Farm" } },
+    { src: animalfarm5, alt: { en: "Animal Farm animal detail", es: "Detalle de animal en Animal Farm" } },
   ],
 };

@@ -6,6 +6,8 @@ export type Project = {
   description: string;
   stack: string[];
   github: string;
+  /** Live deployment, when there is one. */
+  demo?: string;
 };
 
 const en: Project[] = [
@@ -16,6 +18,7 @@ const en: Project[] = [
       "AI-powered English coaching app with personalized curriculum, roleplay and shadowing practice, interview prep, vocabulary tracking, and progress analytics, powered by Claude and OpenAI.",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic SDK", "OpenAI", "better-auth"],
     github: "https://github.com/JohnFT/talk-ready-v1",
+    demo: "https://talk-ready-v1-eaom.vercel.app/login",
   },
   {
     slug: "animal-farm",
@@ -58,6 +61,7 @@ const es: Project[] = [
       "Aplicación de coaching de inglés con IA, con currículo personalizado, práctica de roleplay y shadowing, preparación para entrevistas, seguimiento de vocabulario y análisis de progreso, impulsada por Claude y OpenAI.",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic SDK", "OpenAI", "better-auth"],
     github: "https://github.com/JohnFT/talk-ready-v1",
+    demo: "https://talk-ready-v1-eaom.vercel.app/login",
   },
   {
     slug: "animal-farm",

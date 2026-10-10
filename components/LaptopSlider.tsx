@@ -19,13 +19,28 @@ export default function LaptopSlider({
 }) {
   const { index, setIndex, go, pauseHandlers } = useSlideshow(shots.length, SLIDE_MS);
   const multiple = shots.length > 1;
+  // Portrait shots are phone screenshots that already include the device bezel: show them whole, no laptop.
+  const phone = shots[0].src.height > shots[0].src.width;
+  // Pages wider than the 16:9 screen are shown whole (pinned to the top) rather than cropped at the sides;
+  // taller ones fill the width and show their top, like an unscrolled browser.
+  const fit = (shot: Shot) =>
+    phone ? "object-contain" : shot.src.width / shot.src.height > 16 / 9 ? "object-contain object-top" : "object-cover object-top";
 
   return (
     <div className="w-full" {...pauseHandlers}>
       {/* Lid */}
-      <div className="rounded-t-2xl border border-white/15 bg-zinc-900 p-2 pb-2.5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] sm:p-2.5 sm:pb-3">
-        <div className="mx-auto mb-1.5 h-1.5 w-1.5 rounded-full bg-zinc-700" />
-        <div className="group relative aspect-video overflow-hidden rounded-md bg-black">
+      <div
+        className={
+          phone
+            ? "mx-auto max-w-[260px]"
+            : "rounded-t-2xl border border-white/15 bg-zinc-900 p-2 pb-2.5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] sm:p-2.5 sm:pb-3"
+        }
+      >
+        {!phone && <div className="mx-auto mb-1.5 h-1.5 w-1.5 rounded-full bg-zinc-700" />}
+        <div
+          className={`group relative overflow-hidden ${phone ? "rounded-[2.5rem]" : "aspect-video rounded-md bg-white"}`}
+          style={phone ? { aspectRatio: `${shots[0].src.width} / ${shots[0].src.height}` } : undefined}
+        >
           {shots.map((shot, i) => {
             const active = i === index;
             return (
@@ -40,12 +55,11 @@ export default function LaptopSlider({
                   active ? "opacity-100" : "pointer-events-none opacity-0"
                 }`}
               >
-                {/* Fill the screen width; taller pages show their top, like an unscrolled browser. */}
                 <Image
                   src={shot.src}
                   alt={shot.alt[locale]}
-                  sizes="(min-width: 1024px) 520px, 90vw"
-                  className="h-full w-full object-cover object-top"
+                  sizes={phone ? "260px" : "(min-width: 1024px) 520px, 90vw"}
+                  className={`h-full w-full ${fit(shot)}`}
                 />
               </a>
             );
@@ -73,9 +87,11 @@ export default function LaptopSlider({
         </div>
       </div>
       {/* Base */}
-      <div className="relative -mx-[7%] h-3 rounded-b-2xl bg-gradient-to-b from-zinc-500 to-zinc-800 sm:h-3.5">
-        <div className="mx-auto h-1.5 w-16 rounded-b-md bg-zinc-900/70 sm:w-20" />
-      </div>
+      {!phone && (
+        <div className="relative -mx-[7%] h-3 rounded-b-2xl bg-gradient-to-b from-zinc-500 to-zinc-800 sm:h-3.5">
+          <div className="mx-auto h-1.5 w-16 rounded-b-md bg-zinc-900/70 sm:w-20" />
+        </div>
+      )}
 
       <div className="mt-4 flex items-center justify-between gap-3">
         <span className="min-w-0 truncate font-mono text-[11px] text-text-subtle" aria-live="polite">

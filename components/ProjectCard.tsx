@@ -6,6 +6,24 @@ import TechIcon from "@/components/TechIcon";
 
 type SliderLabels = { prev: string; next: string; show: string };
 
+function ProjectLinks({ project, privateLabel, demoLabel }: { project: Project; privateLabel: string; demoLabel: string }) {
+  return (
+    <div className="flex items-center gap-5">
+      {project.demo && (
+        <a
+          href={project.demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 text-accent transition-colors hover:text-white"
+        >
+          {demoLabel} ↗
+        </a>
+      )}
+      <RepoLink project={project} privateLabel={privateLabel} />
+    </div>
+  );
+}
+
 function RepoLink({ project, privateLabel }: { project: Project; privateLabel: string }) {
   return project.github ? (
     <a
@@ -26,12 +44,14 @@ export default function ProjectCard({
   locale,
   shots,
   privateLabel,
+  demoLabel,
   sliderLabels,
 }: {
   project: Project;
   locale: Locale;
   shots?: Shot[];
   privateLabel: string;
+  demoLabel: string;
   sliderLabels: SliderLabels;
 }) {
   // Projects with screenshots get a wide, featured layout with a laptop slideshow.
@@ -54,7 +74,7 @@ export default function ProjectCard({
             ))}
           </ul>
           <div className="mt-8 border-t border-white/5 pt-4 font-mono text-xs">
-            <RepoLink project={project} privateLabel={privateLabel} />
+            <ProjectLinks project={project} privateLabel={privateLabel} demoLabel={demoLabel} />
           </div>
         </div>
         <div className="px-[5%] lg:px-[4%]">
@@ -83,7 +103,7 @@ export default function ProjectCard({
         </ul>
       </div>
       <div className="mt-6 flex items-center justify-end border-t border-white/5 pt-4 font-mono text-xs">
-        <RepoLink project={project} privateLabel={privateLabel} />
+        <ProjectLinks project={project} privateLabel={privateLabel} demoLabel={demoLabel} />
       </div>
     </article>
   );
