@@ -56,12 +56,14 @@ export default function TopNav({ locale, dict }: { locale: Locale; dict: Diction
           </ul>
           <Link
             href={otherHref}
+            data-umami-event="cambiar-idioma"
             className="rounded-full border border-line px-3 py-1 font-mono text-xs font-semibold tracking-wide text-text-muted transition-colors hover:text-text"
           >
             {locale === "en" ? "ES" : "EN"}
           </Link>
           <a
             href="#mail"
+            data-umami-event="nav-contactar"
             className="flex items-center gap-2 rounded bg-accent px-4 py-2 font-mono text-xs font-semibold tracking-wider text-on-accent uppercase shadow-[0_0_20px_rgba(255,217,142,0.25)] transition-colors hover:bg-accent-hover"
           >
             <span>{dict.nav.cta}</span>

@@ -185,6 +185,8 @@ export default function HeroCarousel({ dict, locale }: { dict: Dictionary; local
                 <button
                   type="button"
                   onClick={() => setIndex(target)}
+                  data-umami-event="carrusel-empresa"
+                  data-umami-event-empresa={stop.company}
                   aria-label={stop.company}
                   aria-current={active}
                   className="group flex w-full flex-col items-center gap-2"

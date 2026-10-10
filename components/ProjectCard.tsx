@@ -12,6 +12,8 @@ function ProjectLinks({ project, privateLabel, demoLabel }: { project: Project; 
       {project.demo && (
         <a
           href={project.demo}
+          data-umami-event="ver-demo"
+          data-umami-event-proyecto={project.slug}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 text-accent transition-colors hover:text-white"
@@ -28,6 +30,8 @@ function RepoLink({ project, privateLabel }: { project: Project; privateLabel: s
   return project.github ? (
     <a
       href={project.github}
+      data-umami-event="ver-github"
+      data-umami-event-proyecto={project.slug}
       target="_blank"
       rel="noopener noreferrer"
       className="shrink-0 text-zinc-300 transition-colors hover:text-accent"

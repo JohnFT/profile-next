@@ -29,6 +29,8 @@ export default function ContactSection({ dict, as: Heading = "h2" }: { dict: Dic
               <a
                 key={network.label}
                 href={network.href}
+                data-umami-event="red-social"
+                data-umami-event-red={network.label}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between gap-4 rounded border border-white/5 bg-white/[0.03] p-3 text-zinc-300 transition-colors hover:bg-white/[0.08]"

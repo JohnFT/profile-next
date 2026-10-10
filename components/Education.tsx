@@ -55,6 +55,7 @@ export default function Education({ locale, dict }: { locale: Locale; dict: Dict
           </div>
           <a
             href={PLATZI_PROFILE}
+            data-umami-event="perfil-platzi"
             target="_blank"
             rel="noopener noreferrer"
             className="flex shrink-0 items-center gap-1.5 font-mono text-xs text-text-muted uppercase transition-colors hover:text-white"

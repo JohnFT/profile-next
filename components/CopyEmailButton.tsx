@@ -29,6 +29,7 @@ export default function CopyEmailButton({
       <button
         type="button"
         onClick={handleCopy}
+        data-umami-event="copiar-correo"
         className={`flex shrink-0 items-center gap-2 rounded-lg px-4 py-2.5 font-mono text-xs font-semibold text-on-accent transition-colors ${
           copied ? "bg-ok" : "bg-accent hover:bg-accent-hover"
         }`}
@@ -36,7 +37,7 @@ export default function CopyEmailButton({
         <CopyIcon className="h-4 w-4" />
         <span aria-live="polite">{copied ? copiedLabel : label}</span>
       </button>
-      <a href={`mailto:${email}`} className="truncate font-mono text-xs text-zinc-300 hover:text-accent">
+      <a href={`mailto:${email}`} data-umami-event="abrir-correo" className="truncate font-mono text-xs text-zinc-300 hover:text-accent">
         {email}
       </a>
     </div>

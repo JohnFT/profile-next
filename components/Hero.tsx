@@ -45,6 +45,7 @@ export default function Hero({ dict, locale }: { dict: Dictionary; locale: Local
           <div className="flex w-full flex-wrap items-center gap-4 sm:w-auto">
             <a
               href="#work"
+              data-umami-event="hero-ver-trabajo"
               className="flex items-center gap-3 rounded bg-white px-7 py-3.5 text-sm font-semibold tracking-wide text-black transition-colors hover:bg-zinc-200"
             >
               <span>{dict.hero.ctaPrimary}</span>
@@ -52,6 +53,7 @@ export default function Hero({ dict, locale }: { dict: Dictionary; locale: Local
             </a>
             <a
               href="#mail"
+              data-umami-event="hero-contactar"
               className="rounded border border-white/10 bg-white/[0.04] px-7 py-3.5 text-sm font-medium tracking-wide text-zinc-200 transition-colors hover:bg-white/[0.09]"
             >
               {dict.hero.ctaSecondary}

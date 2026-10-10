@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import "../globals.css";
 import { locales, isLocale, defaultLocale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
@@ -56,6 +57,12 @@ export default async function RootLayout({
         <div className="flex-1 pb-20 sm:pb-0">{children}</div>
         <BottomTabBar locale={lang} dict={dict} />
       </body>
+      {/* Umami analytics: cookieless, so no consent banner. data-domains keeps local dev visits out of the stats. */}
+      <Script
+        src="https://cloud.umami.is/script.js"
+        data-website-id="92d9a4ed-13b5-4795-adde-b5107d9e3677"
+        data-domains="johnft.github.io"
+      />
     </html>
   );
 }
